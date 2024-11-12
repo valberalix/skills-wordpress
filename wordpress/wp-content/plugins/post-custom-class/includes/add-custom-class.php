@@ -1,12 +1,9 @@
 <?php
 
-function add_post_custom_class()
+function add_post_custom_class($post)
 {
-  // usar add_filter(), the_content.
-  $posts = [];
+  // var_dump($post);
+  // echo '<script>console.log("post:::",' . json_encode($post) . ')</script>';
 
-  foreach ($posts as $post) {
-    
-  }
+  return str_replace('<p>', '<p class="custom-class">', $post);
 }
-add_filter();
