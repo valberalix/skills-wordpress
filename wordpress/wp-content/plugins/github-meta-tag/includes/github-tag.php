@@ -17,20 +17,30 @@ function add_github_menu() {
  * Settings page display callback.
  */
 function github_settings_page() {
-  echo '
-    <div>
-      <div><h3>Insira abaixo a url do seu GitHub:</h3></div>
+
+  if (isset($_POST['github_url'])) {
+    update_option('github_url', sanitize_text_field($_POST['github_url']));
+    echo '<div class="updated"><p>Configurações salvas.</p></div>';
+  }
+
+  $github_url = get_option('github_url', '');
+  ?>
+    <form method="POST" action="">
       <div>
-        <input name="github-url" placeholder="https://github.com/username" type="text" />
-        <input name="submit" type="submit" value="Salvar" />
+        <div><h3>Insira abaixo a url do seu GitHub:</h3></div>
+        <div>
+          <input name="github_url" value="<?php echo esc_attr($github_url) ?? 'https://github.com/username'; ?>" type="text" />
+        </div>
+        <div><?php submit_button(); ?></div>
       </div>
-    </div>';
+    </form>
+  <?php
 }
 
 function add_github_meta_tag()
 {
-  $id = $_GET['github-url'] ?? '{url do perfil}';
-  echo "<meta name='verify-skills' content=$id>";
+  $github_url = get_option('github_url', '') ?? '{url do perfil}';
+  echo "<meta name='verify-skills' content=$github_url>";
 }
 
 add_action('wp_head', 'add_github_meta_tag');
