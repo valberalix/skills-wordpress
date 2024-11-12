@@ -1,0 +1,11 @@
+/wordpress/*.php
+/wordpress/wp-admin/
+/wordpress/wp-includes/
+
+/wordpress/wp-content/languages
+/wordpress/wp-content/plugins/akismet
+/wordpress/wp-content/plugins/fakerpress
+/wordpress/wp-content/plugins/hello.php
+/wordpress/wp-content/themes
+/wordpress/wp-content/upgrade
+/wordpress/wp-content/uploads

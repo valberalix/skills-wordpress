@@ -17,16 +17,16 @@ if (!function_exists('add_action')) {
 }
 
 // Setup
-define('MY_PLUGIN_DIR', plugin_dir_path(__FILE__));
+define('RP_PLUGIN_DIR', plugin_dir_path(__FILE__));
 
-// // Includes
-// $rootFiles = glob(MY_PLUGIN_DIR . 'includes/*.php');
-// $subdirectoryFiles = glob(MY_PLUGIN_DIR . 'includes/**/*.php');
-// $allFiles = array_merge($rootFiles, $subdirectoryFiles);
+// Includes
+$rootFiles = glob(RP_PLUGIN_DIR . 'includes/*.php');
+$subdirectoryFiles = glob(RP_PLUGIN_DIR . 'includes/**/*.php');
+$allFiles = array_merge($rootFiles, $subdirectoryFiles);
 
-// foreach ($allFiles as $filename) {
-//   include_once ($filename);
-// }
+foreach ($allFiles as $filename) {
+  include_once ($filename);
+}
 
-// // Hooks
-// add_action('init', 'create_post_list_shortcode');
+// Hooks
+add_shortcode('related_posts', 'create_post_list_shortcode');
