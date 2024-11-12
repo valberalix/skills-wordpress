@@ -17,16 +17,16 @@ if (!function_exists('add_action')) {
 }
 
 // Setup
-define('MY_PLUGIN_DIR', plugin_dir_path(__FILE__));
+define('GMT_PLUGIN_DIR', plugin_dir_path(__FILE__));
 
-// // Includes
-// $rootFiles = glob(MY_PLUGIN_DIR . 'includes/*.php');
-// $subdirectoryFiles = glob(MY_PLUGIN_DIR . 'includes/**/*.php');
-// $allFiles = array_merge($rootFiles, $subdirectoryFiles);
+// Includes
+$rootFiles = glob(GMT_PLUGIN_DIR . 'includes/*.php');
+$subdirectoryFiles = glob(GMT_PLUGIN_DIR . 'includes/**/*.php');
+$allFiles = array_merge($rootFiles, $subdirectoryFiles);
 
-// foreach ($allFiles as $filename) {
-//   include_once ($filename);
-// }
+foreach ($allFiles as $filename) {
+  include_once ($filename);
+}
 
-// // Hooks
-// add_action('init', 'add_github_metatag');
+// Hooks
+add_action('admin_menu', 'add_github_menu');
